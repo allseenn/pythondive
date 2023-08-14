@@ -17,5 +17,14 @@ num = randint(LOWER_LIMIT, UPPER_LIMIT)
 ```
 
 ## Решение
-1. Решены семинарские задачи: 
-- [Задача 7]
+
+0. Решены семинарские задачи: 
+- [Задача 7](https://github.com/allseenn/pythondive/blob/main/01.Tasks/sem07.py)
+- [Задача 8](https://github.com/allseenn/pythondive/blob/main/01.Tasks/sem08.py)
+- [Задача 9](https://github.com/allseenn/pythondive/blob/main/01.Tasks/sem09.py)
+
+1. [Задача 1](https://github.com/allseenn/pythondive/blob/main/01.Tasks/task01.py)
+
+2. [Задача 2](https://github.com/allseenn/pythondive/blob/main/01.Tasks/task02.py)
+
+3. [Задача 3](https://github.com/allseenn/pythondive/blob/main/01.Tasks/task03.py)
