@@ -7,12 +7,23 @@
 # Если число не из диапазона, запросите новое число
 # Откажитесь от магических чисел
 # В коде должны быть один input и один print
-
-
-number = int(input("Enter number from 1 till 999: "))
-if number // 10:
-    print("1-digit")
-elif number % 100:
-    print("2-digit")
-elif number % 1000:
-    print("3-digit")  
+circle = True
+while(circle):
+    number = int(input("Введите целое число от 1 до 999: "))
+    if 0 < number < 10:
+        result = f"1. Квадрат однозначного числа {number} равен {number**2}"
+        circle = False
+    elif 10< number < 100:
+        digit_1 = number//10
+        digit_2 = number-number//10*10
+        result = f"2. Произведение цифр двухзначного числа {number} равно {digit_1 * digit_2}"
+        circle = False
+    elif 100 < number < 1000:
+        digit_1 = number//100
+        digit_2 = (number-number//100*100)//10
+        digit_3 = (number-number//100*100)%10
+        result = f"3. Зеркальное отражение трехзначного числа {number} равно {digit_3}{digit_2}{digit_1}"
+        circle = False
+    else:
+        circle = True
+print (result)
