@@ -24,6 +24,6 @@ def to_hex(number):
 
 number = int(input("Введите целое число: "))
 
-print(to_hex(number))
+print(f"Шестнадцатеричное значение целого {number } равно {to_hex(number)}")
 
-print(hex(number))
+print(f"Проверка с помощью встроенной функции hex  {hex(number)}")

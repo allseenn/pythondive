@@ -21,8 +21,10 @@ def summa(string1, string2):
     a = int(a1)*int(b2) + int(a2)* int(b1)
     b = int(b1) * int(b2)
     divider = gcd(a, b)
-    if divider == 1 and b != 1:
+    if divider == 1 and b !=1:
         return f"{a}/{b}"
+    elif a == b:
+        return "1"
     elif b == 1:
         return a
     else:
@@ -34,8 +36,10 @@ def multiply(string, string2):
     a = int(a1)*int(a2)
     b = int(b1) * int(b2)
     divider = gcd(a, b)
-    if divider == 1 and b != 1:
+    if divider == 1 and b !=1:
         return f"{a}/{b}"
+    elif a == b:
+        return "1"
     elif b == 1:
         return a
     else:
@@ -44,10 +48,10 @@ def multiply(string, string2):
 string1 = input("Введите первую дробь вида а/b: ")
 string2 = input("Введите вторую дробь вида а/b: ")
 
-print(f"Сумма дробей {string1} и {string2} равна {summa(string1, string2)}")
+print(f"\nСумма дробей {string1} и {string2} равна {summa(string1, string2)}")
 
 print(f"Проверка c помощью fractions {Fraction(string1) + Fraction(string2)}")
 
-print(f"Произведение дробей {string1} и {string2} равно {multiply(string1, string2)}")
+print(f"\nПроизведение дробей {string1} и {string2} равно {multiply(string1, string2)}")
 
-print(f"Проверка c помощью fractions {Fraction(string1) * Fraction(string2)}")
+print(f"Проверка c помощью модуля fractions {Fraction(string1) * Fraction(string2)}")
