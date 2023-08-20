@@ -28,9 +28,26 @@ def summa(string1, string2):
     else:
         return f"{a/divider:.0f}/{b/divider:.0f}"
 
+def multiply(string, string2):
+    a1, b1 = str(string1).split(sep="/")
+    a2, b2 = str(string2).split(sep="/")
+    a = int(a1)*int(a2)
+    b = int(b1) * int(b2)
+    divider = gcd(a, b)
+    if divider == 1 and b != 1:
+        return f"{a}/{b}"
+    elif b == 1:
+        return a
+    else:
+        return f"{a/divider:.0f}/{b/divider:.0f}"
+
 string1 = input("Введите первую дробь вида а/b: ")
 string2 = input("Введите вторую дробь вида а/b: ")
 
-print(summa(string1, string2))
+print(f"Сумма дробей {string1} и {string2} равна {summa(string1, string2)}")
 
-print(Fraction(string1) + Fraction(string2))
+print(f"Проверка c помощью fractions {Fraction(string1) + Fraction(string2)}")
+
+print(f"Произведение дробей {string1} и {string2} равно {multiply(string1, string2)}")
+
+print(f"Проверка c помощью fractions {Fraction(string1) * Fraction(string2)}")
