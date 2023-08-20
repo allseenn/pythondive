@@ -4,8 +4,8 @@
 # Для проверки своего кода используйте модуль fractions.
 from fractions import Fraction
 
-def gcd(a, b): 
-    if a > b:  # define the if condition 
+def gcd(a, b): # Greater common divider (НОД)
+    if a > b:   
         temp = b 
     else: 
         temp = a 
