@@ -47,12 +47,12 @@ print("Исполнение звездного задания (*):")
 
 items_quantity = len(items_dict)
 counter = 0
-permutation = 2**items_quantity
+permutations = 2**items_quantity
 no_0b = 2
 index_dict = list(items_dict.keys())
 value_dict = list(items_dict.values())
 
-for i in range(permutation):
+for i in range(permutations):
     items_variant = bin(i)[no_0b:].zfill(items_quantity)
     variant = list()
     bag_weight = 0
