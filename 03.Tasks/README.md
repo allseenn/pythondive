@@ -11,18 +11,20 @@
 
 ### Задание 1
 
-[Задача № 6 из семинара]()
-[Задача № 7 из семинара]()
-[Задача № 8 из семинара]()
+[Задача № 6 из семинара](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task06.py)
+
+[Задача № 7 из семинара](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task07.py)
+
+[Задача № 8 из семинара](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task08.py)
 
 ### Задание 2
 
-[Задача № 2]()
+[Задача № 2](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task02.py)
 
 ### Задание 3
 
-[Задача № 3]()
+[Задача № 3](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task03.py)
 
 ### Задание 4
 
-[Задача № 4]()
+[Задача № 4](https://github.com/allseenn/pythondive/blob/main/03.Tasks/task04.py)

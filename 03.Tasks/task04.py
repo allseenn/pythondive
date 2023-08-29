@@ -51,6 +51,7 @@ permutation = 2**items_quantity
 no_0b = 2
 index_dict = list(items_dict.keys())
 value_dict = list(items_dict.values())
+
 for i in range(permutation):
     items_variant = bin(i)[no_0b:].zfill(items_quantity)
     variant = list()
