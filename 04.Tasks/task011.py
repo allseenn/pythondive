@@ -1,17 +1,24 @@
 # 1. Напишите функцию для транспонирования матрицы
-import sys
-
 
 def transpon(matrix):
-    length = len(matrix) - 1
-    for i in matrix[length]:
-        for j in matrix:
-            print(j[length], end=" ")
-        length -= 1
-        print()
+    xirtam = list()
+    len_x = len(max(matrix, key=len))
+    for i in range(len_x):
+        xirtam.append(list())
+        for row in matrix:
+            try:
+                xirtam[i].append(row[len_x-i-1])
+            except:
+                xirtam[i].append(None)
+    return xirtam
 
-matrix = [[1, 2, 3],
-          [4, 5, 6],
-          [7, 8, 9]]
 
-transpon(matrix)
+matrix = [[0, 0, 0],
+          [1, 1, 1],
+          [2, 2, 2],
+          [3, 3, 3],
+          [4, 4, 4]]
+
+print(*matrix, sep="\n")
+print()
+print(*transpon(matrix), sep="\n")
