@@ -12,7 +12,6 @@ def change(var):
                 globals()[k+"s"] = None
                 
 
-
 var1 = 0
 var2 = 0 
 var3 = 0
