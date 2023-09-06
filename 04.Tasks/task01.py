@@ -1,24 +1,43 @@
 # 1. Напишите функцию для транспонирования матрицы
 
-def transpon(matrix):
-    xirtam = list()
-    len_x = len(max(matrix, key=len))
-    for i in range(len_x):
-        xirtam.append(list())
-        for row in matrix:
-            try:
-                xirtam[i].append(row[len_x-i-1])
-            except:
-                xirtam[i].append(None)
-    return xirtam
+def transpose(matrix, method="left"):
+    num_rows = len(matrix)
+    num_cols = max(len(row) for row in matrix)
+    transposed = [[None] * num_rows for _ in range(num_cols)]
+    match method:
+        case "right":
+            for i in range(num_rows):
+                for j in range(len(matrix[i])):
+                    transposed[j][-i-1] = matrix[i][j]
+            return transposed
+        case "left":
+            for i in range(num_rows):
+                for j in range(len(matrix[i])):
+                    transposed[-j-1][i] = matrix[i][j]
+            return transposed
+        case "roll":
+            return matrix[::-1]
+        case "mirror":
+            return [row[::-1] for row in matrix]
+    return ["Значения второго аргумента функции:", "right", "left", "roll", "mirror"]
 
 
-matrix = [[0, 0, 0],
-          [1, 1, 1],
-          [2, 2, 2],
-          [3, 3, 3],
-          [4, 4, 4]]
+matrix = [[100, 200, 300, 400, 500],
+          [101, 202, 303, 404, 505],
+          [110, 220, 330, 440],
+          [111, 222, 333, 444, 555, 666]]
 
+print("Исходная матрица:")
 print(*matrix, sep="\n")
-print()
-print(*transpon(matrix), sep="\n")
+
+print("\nТранспонирование по часовой стрелке:")
+print(*transpose(matrix, "right"), sep="\n")
+
+print("\nТранспонирование против стрелки:")
+print(*transpose(matrix, "left"), sep="\n")
+
+print("\nЗеркальное транспонирование:")
+print(*transpose(matrix, "mirror"), sep="\n")
+
+print("\nПереворот матрицы:")
+print(*transpose(matrix, "roll"), sep="\n")
