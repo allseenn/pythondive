@@ -5,7 +5,6 @@
 # ✔ Значения не удаляются, а помещаются в одноимённые переменные без s на конце.
 
 def change(var):
-    var_list = list
     for k, v in var.items():
         if not k.startswith("__") and not callable(k) and not callable(v):
             if k+"s" in var.keys():
