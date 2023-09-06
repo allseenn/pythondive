@@ -26,4 +26,8 @@
 
 ### Решение
 
-[Задача 1]()
+- [Задача 1](https://github.com/allseenn/pythondive/blob/main/04.Tasks/task01.py)
+- [Задача 2](https://github.com/allseenn/pythondive/blob/main/04.Tasks/task02.py)
+- [Задача 3](https://github.com/allseenn/pythondive/blob/main/04.Tasks/task03.py)
+- [Задача 7](https://github.com/allseenn/pythondive/blob/main/04.Tasks/task07.py)
+- [Задача 8](https://github.com/allseenn/pythondive/blob/main/04.Tasks/task08.py)
