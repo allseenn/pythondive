@@ -17,3 +17,12 @@
 3. Создайте функцию генератор чисел Фибоначчи (см. Википедию).
 
 ## Решение
+
+[Задача 1](https://github.com/allseenn/pythondive/blob/main/05.Tasks/task01.py)
+
+[Задача 2](https://github.com/allseenn/pythondive/blob/main/05.Tasks/task02.py)
+
+[Задача 3](https://github.com/allseenn/pythondive/blob/main/05.Tasks/task03.py)
+
+[Задача 6](https://github.com/allseenn/pythondive/blob/main/05.Tasks/task06.py)
+
