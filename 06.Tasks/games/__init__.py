@@ -1,1 +1,1 @@
-__all__ = ['guess_digit', 'guess_word', 'guess_date', 'store_guess' ]
+__all__ = ['guess_digit', 'guess_word', 'guess_date', 'store_guess', 'guest_data', 'guess_chess', 'guess_gena' ]
