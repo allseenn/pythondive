@@ -23,5 +23,14 @@
 
 ## Решение
 
-[Задача 7]()
-[Задача 8]()
+- [Задача 7](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_data.py)
+
+- [Задача 8](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/__init__.py)
+
+
+- [Задача 1](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_date.py)
+
+- [Задача 2](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_digit.py)
+
+- [Задача 3](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_gena.py)
+
