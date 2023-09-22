@@ -30,7 +30,7 @@
 
 - [Задача 1](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_date.py)
 
-- [Задача 2](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_digit.py)
+- [Задача 2](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_chess.py)
 
 - [Задача 3](https://github.com/allseenn/pythondive/blob/main/06.Tasks/games/guess_gena.py)
 
