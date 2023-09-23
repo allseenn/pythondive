@@ -5,6 +5,17 @@
 # Программа получает на вход восемь пар чисел, каждое число от 1 до 8 - координаты 8 ферзей. 
 # Если ферзи не бьют друг друга верните истину, а если бьют - ложь.
 def queens(*args):
+    """
+    Расставляет 8 ферзей на шахматной доске и проверяет их корректное размещение.
+
+    Аргументы:
+    args (tuple): 8 Кортежей (0-7) с координатами ферзей в формате (x, y).
+
+    Возвращает:
+    bool: 
+    False - хотя бы одна пара ферзей бьют друг друга (по горизонтали, вертикали или диагонали).
+    True - никто из ферзей не бьют любого другого.
+    """
     size = len(args)
     if 7 > size > 8:
         return False
@@ -17,16 +28,20 @@ def queens(*args):
             for h in range(size): # h - horizontal
                 if board[y][h] == 90:
                     board[y][h] = i*10+i
+                else: return False
             # заполняем всю ось y по значению x вертикальным лучом i-го ферзя (ферзь№1=11)
             for v in range(size): # v - vertical
                 if board[v][x] == 90: 
                     board[v][x] = i*10+i
+                else: return False
             # заполняем диагонали, проходящие через текущую точку
             for d in range(size): # d - diagonal
                 if 0 <= x + d < size and 0 <= y + d < size and board[y+d][x+d] == 90:
                     board[y+d][x+d] = i*10+i
+                else: return False
                 if 0 <= x - d < size and 0 <= y + d < size and board[y+d][x-d] == 90:
                     board[y+d][x-d] = i*10+i
+                else: return False
         else:
             return False
 
@@ -44,5 +59,5 @@ board =[[90, 90, 90, 90, 90, 90, 90, 90],
 
 print(*board, sep='\n', end="\n\n")
 # print(queens((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7)))
-print(queens((0, 0), (2, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7)))
+print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
 print(*board, sep='\n')
