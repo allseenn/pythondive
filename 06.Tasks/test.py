@@ -8,11 +8,15 @@ def queen(*args):
     size = len(args)
     if 7 > size > 8:
         return False
-    for i, coordinate in enumerate(args, 1):
-        x, y = coordinate
-        if board[y][x] == 0:
-            board[y][x] = i
-            board[y] = [i]*size
+    for i, coordinate in enumerate(args, 1): # Перебор всех координта
+        x, y = coordinate 
+        if board[y][x] == 0: # Если текущая точка (y,x) имеет значение ноль
+            board[y] = [i]*size # заполняем всю ось x по значению по значению координаты y
+            for j in range(size):
+                board[j][x] = i # текучещей точке присвоить номер (индекс) координаты
+
+            
+            
         else:
             return False
 
