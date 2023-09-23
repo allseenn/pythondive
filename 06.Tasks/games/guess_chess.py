@@ -4,23 +4,73 @@
 # Вам дана расстановка 8 ферзей на доске, определите, есть ли среди них пара бьющих друг друга. 
 # Программа получает на вход восемь пар чисел, каждое число от 1 до 8 - координаты 8 ферзей. 
 # Если ферзи не бьют друг друга верните истину, а если бьют - ложь.
+def queens(*args):
+    """
+    Расставляет 8 ферзей на шахматной доске и проверяет их корректное размещение.
+    https://en.wikipedia.org/wiki/Eight_queens_puzzle
 
-def is_attacking(x1, y1, x2, y2):
-    # Проверяем, бьют ли ферзи друг друга по вертикали, горизонтали или диагоналям
-    return x1 == x2 or y1 == y2 or abs(x1 - x2) == abs(y1 - y2)
+    Аргументы:
+    args (tuple): 8 Кортежей (0-7) с координатами ферзей в формате (x, y).
 
-def queen(*args):
-    if len(args) != 8:
-        return True
+    Возвращает:
+    bool: 
+    False - хотя бы одна пара ферзей бьют друг друга (по горизонтали, вертикали или диагонали).
+    True - никто из ферзей не бьют любого другого.
+    """
+    size = len(args)
+    if 7 > size > 8:
+        return False
+    for i, queen in enumerate(args, 1): # Перебор 8 ферзей
+        x, y = queen # Получение координат каждого ферзя
+        # Расстановка ферзей
+        if board[y][x] == 0: # Если текущая точка (y,x) имеет значение ноль
+            board[y][x] = i # Ставим i-того ферзя (ферзь№1=10)
+            # пробегаем всю ось x по значению y горизонтальным лучом i-го ферзя (ферзь№1=11)
+            for h in range(size): # h - horizontal
+                if board[y][h] == 0 or board[y][h] == i:
+                    pass
+                else: return False
+            # пробегаем всю ось y по значению x вертикальным лучом i-го ферзя (ферзь№1=11)
+            for v in range(size): # v - vertical
+                if board[v][x] == 0 or board[v][x] == i: 
+                    pass
+                else: return False
+            # пробегаем по левой диагонали, проходящие через текущую точку
+            l_start = (x-y, 0) if x-y >= 0 else (0, y-x) #  (x,y) Начало левой диагонали
+            l_end = (size-1-l_start[1], size-1-l_start[0]) # (x,y) Конец левой диагонали
+            while l_start != l_end:
+                if board[l_start[1]][l_start[0]] == i or board[l_start[1]][l_start[0]] == 0:   
+                    l_start = (l_start[0]+1, l_start[1]+1)
+                else: return False 
+            # r_start = (0, x+y) if (x+y) <= size-1 else 
+            # r_end = (x+y, 0)
+            # пробегаем по правой диагонали, проходящей через текущую точку (снизу вверх)
+            r_start = (x - min(x, size-1 - y), y + min(x, size-1 - y))
+            r_end = (x + min(size-1 - x, y), y - min(size-1 - x, y))
+            while r_start != r_end:
+                if board[r_start[1]][r_start[0]] == i or board[r_start[1]][r_start[0]] == 0:
+                    r_start = (r_start[0] + 1, r_start[1] - 1)
+                else:
+                    return False
 
-    for i in range(8):
-        for j in range(i + 1, 8):
-            x1, y1 = args[i]
-            x2, y2 = args[j]
-            if is_attacking(x1, y1, x2, y2):
-                return False
+        else:
+            return False
 
     return True
 
-print(queen((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7)))  # True
-print(queen((0, 0), (1, 7), (2, 4), (3, 6), (4, 1), (5, 3), (6, 5), (7, 2)))  # False
+board =[[0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]]
+
+if __name__ == "__main__":
+
+    print(*board, sep='\n', end="\n\n")
+    #print(queens((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7)))
+    # print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
+    print(queens((5,0),(3,1),(6,2),(0,3),(7,4),(1,5),(4,6),(2,7)))
+    print(*board, sep='\n')

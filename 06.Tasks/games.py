@@ -3,6 +3,6 @@
 # В модулях создайте дандер __all__ и укажите только те функции, 
 # которые могут верно работать за пределами модуля.
 
-from games.store_guess import multy_quiz, my_dic
+from games.guess_chess import queens
 
-multy_quiz(my_dic)
+#print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
