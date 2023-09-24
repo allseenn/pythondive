@@ -5,10 +5,11 @@
 import time
 from games.guess_chess import positions
 
-start_time = time.time()
+
 arrangements_to_find = 100
 mode = 2
+start_time = time.time()
 arrangements = positions(arrangements_to_find, mode)
-print(*arrangements, sep='\n')
 end_time = time.time()
+print(*arrangements, sep='\n')
 print(f"За {end_time-start_time} секунд, найдено {len(arrangements)} расстановки")
