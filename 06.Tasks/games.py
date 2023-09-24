@@ -2,9 +2,12 @@
 # Добавьте в __init__ пакета имена модулей внутри дандер __all__. 
 # В модулях создайте дандер __all__ и укажите только те функции, 
 # которые могут верно работать за пределами модуля.
-
+import time
 from games.guess_chess import positions
 
-#print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
-
-print(*positions(4), sep='\n')
+start_time = time.time()
+arrangements_to_find = 4
+arrangements = positions(arrangements_to_find)
+print(*arrangements, sep='\n')
+end_time = time.time()
+print(f"За {end_time-start_time} секунд, найдено {len(arrangements)} расстановки")
