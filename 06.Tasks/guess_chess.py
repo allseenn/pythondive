@@ -4,7 +4,6 @@
 # Вам дана расстановка 8 ферзей на доске, определите, есть ли среди них пара бьющих друг друга. 
 # Программа получает на вход восемь пар чисел, каждое число от 1 до 8 - координаты 8 ферзей. 
 # Если ферзи не бьют друг друга верните истину, а если бьют - ложь.
-from random import randint
 def queens(*args):
     """
     Расставляет 8 ферзей на шахматной доске и проверяет их корректное размещение.
@@ -30,96 +29,62 @@ def queens(*args):
 
     for i, queen in enumerate(args, 1): # Перебор 8 ферзей
         x, y = queen # Получение координат каждого ферзя
-        # Просмотр всех направлений перед установкой i-го ферзя
+        # Расстановка ферзей
         if board[y][x] == 0: # Если текущая точка (y,x) имеет значение ноль
-            # Горизонталь (--). Пробегаем всю ось x по значению y горизонтальным лучом i-го ферзя
+            ### board[y][x] = i # Ставим i-того ферзя (ферзь№1=10)
+            # Горизонталь (--). пробегаем всю ось x по значению y горизонтальным лучом i-го ферзя (ферзь№1=11)
             for h in range(size): # h - horizontal
-                if board[y][h] == 0: # Горизонталь h, y постоянен
-                    pass           # Горизонталь чиста
-                else: return False # На горизонтали уже есть занятая клетка, возвращаем False
-            # Вертикаль (|). Пробегаем всю ось y по значению x вертикальным лучом i-го ферзя
+                if board[y][h] == 0 or board[y][h] == i:
+                    pass
+                else: return False
+            # Вертикаль (|). Пробегаем всю ось y по значению x вертикальным лучом i-го ферзя (ферзь№1=11)
             for v in range(size): # v - vertical
-                if board[v][x] == 0: # Вертикаль v, х постоянен
-                    pass           # Вся вертикаль чистая
-                else: return False # На вертикали уже есть занятая клетка, возвращаем False
+                if board[v][x] == 0 or board[v][x] == i: 
+                    pass
+                else: return False
             # Спуск (\). Пробегаем по левой диагонали, проходящие через текущую точку
             l_start = (x-y, 0) if x-y >= 0 else (0, y-x) #  (x,y) Начало левой диагонали. Смотрим что больше x или y
             l_end = (size-1-l_start[1], size-1-l_start[0]) # (x,y) Конец левой диагонали. Конец имеет перевернутые координаты вычитаемые из индекса последней клетки (7) старта диагонали
             while l_start != l_end: # Пока старт не сравняется с концом спуска.
-                if board[l_start[1]][l_start[0]] == 0: # Проверяем не занята ли клетка
+                if board[l_start[1]][l_start[0]] == i or board[l_start[1]][l_start[0]] == 0: # Проверяем не занята ли клетка, либо не стоит свой ферзь
                     l_start = (l_start[0]+1, l_start[1]+1) # если свободна клетка, увеличиваем счетчик (координаты)
                 else: return False # Если клетка занята другим ферзем, возвращаем False
             # Подъём (/). Пробегаем по провой диагонали, проходящие через текущую точку    
             r_start = (0, x+y) if (x+y) < size else (x-(size-1-y), x+(size-1-x)) # начало подъёма. Учитываем условие, что сумма координат либо больше, либо меньше размера доски (8)
             r_end = (r_start[1], r_start[0]) # Конечные координаты подъёма развернуты относительно стартовых координат.
-            while r_start[0] <= r_end[0]: # Пока старт не сравняется с концом подъёма.
-                if board[r_start[1]][r_start[0]] == 0:  # Проверяем не занята ли клетка, либо не стоит свой ферзь
+            while r_start != r_end: # Пока старт не сравняется с концом подъёма.
+                if board[r_start[1]][r_start[0]] == i or board[r_start[1]][r_start[0]] == 0:  # Проверяем не занята ли клетка, либо не стоит свой ферзь
                     r_start = (r_start[0]+1, r_start[1]-1) # старт подъема увеличиваем на единицу для продолжения цикла
                 else: return False 
-            board[y][x] = i # Ставим i-того ферзя
-        else: # Если клетка занята, возвращаем False
+            board[y][x] = i # Ставим i-того ферзя (ферзь№1=10)
+        else:
             return False
-    return True # Все условия корректны, возвращаем True
+
+    return True
 
 # 8. Напишите функцию в шахматный модуль. 
 # Используйте генератор случайных чисел для случайной расстановки ферзей в задаче выше. 
 # Проверяйте различный случайные варианты и выведите 4 успешных расстановки.
-def positions(res_amount, mode=0, board_size=8) -> list:
-    res_set = set()
-    maxi = int("76543210", board_size)
+
+def positions(variants, board_size=8) -> list:
+    variants_list = set()
+    maxi = board_size**board_size
     mini = int("01234567", board_size)
-    match mode:
-        case 0:
-            for i in range(mini, maxi):
-                oc = oct(i)[2:].zfill(board_size)
-                q0 = (int(oc[0],8), 0)
-                q1 = (int(oc[1],8), 1)
-                q2 = (int(oc[2],8), 2)
-                q3 = (int(oc[3],8), 3)
-                q4 = (int(oc[4],8), 4)
-                q5 = (int(oc[5],8), 5)
-                q6 = (int(oc[6],8), 6)
-                q7 = (int(oc[7],8), 7)
-                if queens(q0, q1, q2, q3, q4, q5, q6, q7):
-                    res_set.add((q0, q1, q2, q3, q4, q5, q6, q7))
-                if len(res_set) == res_amount: 
-                    break
-        case 1:
-            count = 1
-            while count <= res_amount:
-                rand_num = randint(mini, maxi)
-                oc = oct(rand_num)[2:].zfill(board_size)
-                q0 = (int(oc[0],8), 0)
-                q1 = (int(oc[1],8), 1)
-                q2 = (int(oc[2],8), 2)
-                q3 = (int(oc[3],8), 3)
-                q4 = (int(oc[4],8), 4)
-                q5 = (int(oc[5],8), 5)
-                q6 = (int(oc[6],8), 6)
-                q7 = (int(oc[7],8), 7)
-                if queens(q0, q1, q2, q3, q4, q5, q6, q7):
-                    res_set.add((q0, q1, q2, q3, q4, q5, q6, q7))
-                    count += 1 
-        case 2:
-            with open('queens', 'r') as f:
-                indexes = f.read().splitlines()
-            for i in indexes:
-                oc = oct(int(i))[2:].zfill(board_size)
-                q0 = (int(oc[0],8), 0)
-                q1 = (int(oc[1],8), 1)
-                q2 = (int(oc[2],8), 2)
-                q3 = (int(oc[3],8), 3)
-                q4 = (int(oc[4],8), 4)
-                q5 = (int(oc[5],8), 5)
-                q6 = (int(oc[6],8), 6)
-                q7 = (int(oc[7],8), 7)
-                if queens(q0, q1, q2, q3, q4, q5, q6, q7):
-                    res_set.add((q0, q1, q2, q3, q4, q5, q6, q7))
-                if len(res_set) == res_amount: 
-                    break
-        case _:
-            return set("0 - direct mode", "1 - random mode", "2 - cheat mode")
-    return res_set
+    for i in range(mini, maxi):
+        oc = oct(i)[2:].zfill(board_size)
+        q0 = (int(oc[0],8), 0)
+        q1 = (int(oc[1],8), 1)
+        q2 = (int(oc[2],8), 2)
+        q3 = (int(oc[3],8), 3)
+        q4 = (int(oc[4],8), 4)
+        q5 = (int(oc[5],8), 5)
+        q6 = (int(oc[6],8), 6)
+        q7 = (int(oc[7],8), 7)
+        if queens(q0, q1, q2, q3, q4, q5, q6, q7):
+            variants_list.add((q0, q1, q2, q3, q4, q5, q6, q7))
+        if len(variants_list) == variants: 
+            break
+    return variants_list
 
 def print_board(*args):
     board =[[0, 0, 0, 0, 0, 0, 0, 0],
@@ -136,10 +101,17 @@ def print_board(*args):
         # Расстановка ферзей
         if board[y][x] == 0: # Если текущая точка (y,x) имеет значение ноль
             board[y][x] = i # Ставим i-того ферзя (ферзь№1=10)
+
     print(*board, sep='\n')
 
 
 if __name__ == "__main__":
 
+    #print(queens((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7)))
+    # print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
     # print(queens((5,0),(3,1),(6,2),(0,3),(7,4),(1,5),(4,6),(2,7)))
-    print_board((0, 0), (4, 1), (7, 2), (5, 3), (2, 4), (6, 5), (1, 6), (3, 7))
+    print_board((3, 0), (7, 1), (6, 2), (2, 3), (5, 4), (1, 5), (4, 6), (0, 7))
+ 
+    
+
+
