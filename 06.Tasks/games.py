@@ -3,6 +3,8 @@
 # В модулях создайте дандер __all__ и укажите только те функции, 
 # которые могут верно работать за пределами модуля.
 
-from games.guess_chess import queens
+from games.guess_chess import positions
 
 #print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
+
+print(*positions(4), sep='\n')

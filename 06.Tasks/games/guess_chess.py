@@ -18,8 +18,8 @@ def queens(*args):
     True - никто из ферзей не бьют любого другого.
     """
     size = len(args)
-    if 7 > size > 8:
-        return False
+    # if 7 > size > 8:
+    #     return False
     for i, queen in enumerate(args, 1): # Перебор 8 ферзей
         x, y = queen # Получение координат каждого ферзя
         # Расстановка ферзей
@@ -62,10 +62,22 @@ def queens(*args):
 # Используйте генератор случайных чисел для случайной расстановки ферзей в задаче выше. 
 # Проверяйте различный случайные варианты и выведите 4 успешных расстановки.
 
-def rand_positions(variants, size=8) -> list:
-    var_list = list()
-    for i in range(size):
-        i == m
+def positions(variants, size=8) -> list:
+    variants_list = list()
+    maxi = int("77777777", 8)
+    mini = int("11111111", 8)
+    for i in range(mini, maxi):
+        oc = oct(i)
+        variant = [(int(oc[2],8), 0), (int(oc[3],8), 1), (int(oc[4],8), 2), (int(oc[5],8), 3), 
+        (int(oc[6],8), 4), (int(oc[7],8), 5), (int(oc[8],8), 6), (int(oc[9],8), 7)]
+        # print(*variant)
+        if queens(*variant):
+            variants_list.append(variant)
+        # if variants == len(variants_list):
+            
+    return variants_list 
+
+
 
 board =[[0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0],
@@ -80,7 +92,8 @@ if __name__ == "__main__":
 
     #print(queens((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7)))
     # print(queens((4, 0), (1, 1), (3, 2), (6, 3), (2, 4), (7, 5), (5, 6), (0, 7)))
-    # print(queens((5,0),(3,1),(6,2),(0,3),(7,4),(1,5),(4,6),(2,7)))
-    print(*board, sep='\n')
+    print(queens((5,0),(3,1),(6,2),(0,3),(7,4),(1,5),(4,6),(2,7)))
+    #print(*board, sep='\n')
+    
 
 
