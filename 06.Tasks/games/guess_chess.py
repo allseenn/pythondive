@@ -69,47 +69,22 @@ def queens(*args):
 # Используйте генератор случайных чисел для случайной расстановки ферзей в задаче выше. 
 # Проверяйте различный случайные варианты и выведите 4 успешных расстановки.
 
-# def positions(variants, size=8) -> list:
-#     variants_list = list()
-#     maxi = int("77777777", 8)
-#     mini = int("11111111", 8)
-#     for i in range(mini, maxi):
-#         oc = oct(i)
-#         variant = [(int(oc[2],8), 0), (int(oc[3],8), 1), (int(oc[4],8), 2), (int(oc[5],8), 3), 
-#         (int(oc[6],8), 4), (int(oc[7],8), 5), (int(oc[8],8), 6), (int(oc[9],8), 7)]
-#         # print(*variant)
-#         if queens(*variant):
-#             variants_list.append(variant)
-#         # if variants == len(variants_list):
-            
-#     return variants_list 
-
-def oc(dec_num):
-    if dec_num == 0:
-        return '0'  # Обработка случая, когда входное число равно 0
-    oc_dig = []  # Создаем список для хранения цифр восьмеричного числа
-    while dec_num > 0:
-        remainder = dec_num % 8  # Остаток от деления на 8
-        oc_dig.insert(0, str(remainder))  # Добавляем остаток в начало списка
-        dec_num = dec_num // 8  # Целая часть от деления на 8
-    return ''.join(oc_dig)  # Преобразуем список в строку
-
 def positions(variants, board_size=8) -> list:
     variants_list = list()
     maxi = board_size**board_size
     mini = int("11111111", 8)
     for i in range(mini, maxi):
-        q0 = (int(oc(i)[0],8), 0)
-        q1 = (int(oc(i)[1],8), 1)
-        q2 = (int(oc(i)[2],8), 2)
-        q3 = (int(oc(i)[3],8), 3)
-        q4 = (int(oc(i)[4],8), 4)
-        q5 = (int(oc(i)[5],8), 5)
-        q6 = (int(oc(i)[6],8), 6)
-        q7 = (int(oc(i)[7],8), 7)
+        q0 = (int(oct(i)[2],8), 0)
+        q1 = (int(oct(i)[3],8), 1)
+        q2 = (int(oct(i)[4],8), 2)
+        q3 = (int(oct(i)[5],8), 3)
+        q4 = (int(oct(i)[6],8), 4)
+        q5 = (int(oct(i)[7],8), 5)
+        q6 = (int(oct(i)[8],8), 6)
+        q7 = (int(oct(i)[9],8), 7)
         if queens(q0, q1, q2, q3, q4, q5, q6, q7):
             variants_list.append([q0, q1, q2, q3, q4, q5, q6, q7])
-        if len(variants_list) == variants:  # Check if the desired number of solutions is reached
+        if len(variants_list) == variants: 
             break
     return variants_list
 
