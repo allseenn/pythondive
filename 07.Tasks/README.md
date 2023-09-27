@@ -45,7 +45,7 @@
 2. Соберите из созданных на уроке и в рамках домашнего задания функций пакет для работы с файлами.
 
 ### Решения
-[Задача 0 (семинар)](https://github.com/allseenn/pythondive/blob/main/07.Tasks/futils/cooke.py)
-[Задача 1](https://github.com/allseenn/pythondive/blob/main/07.Tasks/futils/rename.py)
-[Задача 2](https://github.com/allseenn/pythondive/blob/main/07.Tasks/main.py)
+- [Задача 0 (семинар)](https://github.com/allseenn/pythondive/blob/main/07.Tasks/futils/cooke.py)
+- [Задача 1](https://github.com/allseenn/pythondive/blob/main/07.Tasks/futils/rename.py)
+- [Задача 2](https://github.com/allseenn/pythondive/blob/main/07.Tasks/main.py)
 
