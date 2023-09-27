@@ -9,11 +9,10 @@
 # Например для диапазона [3, 6] берутся буквы с 3 по 6 из исходного имени файла. 
 # К ним прибавляется желаемое конечное имя, если оно передано. Далее счётчик файлов и расширение.
 import shutil
-src_dir="." # текущая исходная директория по умолчанию 
-dst_dir="." # текущая конечная директория по умолчанию
+dir="." # текущая директория по умолчанию 
 
-def renamer( src_ext :str, src_start: int, src_end: int, dst_name: str, dig_amount: int, dst_ext: str):
-    files_list = list(shutil.os.walk(src_dir))[0][2] # заносим второй список, нулевого списка - получаем имена файла директории
+def renamer(dir: str, src_ext :str, src_start: int, src_end: int, dst_name: str, dig_amount: int, dst_ext: str)->list:
+    files_list = list(shutil.os.walk(dir))[0][2] # заносим второй список, нулевого списка - получаем имена файла директории
     digit = 1 # начальное значение порядкового номера конечного файла
     for file in files_list: # проход по списку исходных файлов
         src_name, extension = file.split(".") # отделяем имя исходного файла и расширение
@@ -21,9 +20,11 @@ def renamer( src_ext :str, src_start: int, src_end: int, dst_name: str, dig_amou
             digits = f"{digit:0{dig_amount}}" # цифры в порядковом номере конечного файла
             suffix = src_name[src_start-1:src_end]
             # процедура переименования исходного файла в конечный файл
-            shutil.os.rename(f"{src_name}.{src_ext}", f"{dst_name}{suffix}{digits}.{dst_ext}") 
+            shutil.os.rename(f"{dir}/{src_name}.{src_ext}", f"{dir}/{dst_name}{suffix}{digits}.{dst_ext}") 
             digit+=1 # увеличение порядкового номера конечного файла
-    return True
+    return list(shutil.os.walk(dir))[0][2]
 
 if __name__ =='__main__':
-    renamer("txt", 3, 6, "dst", 2, "md")
+    renamer("tmp", "txt", 3, 6, "dst", 2, "md")
+
+    

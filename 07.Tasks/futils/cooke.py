@@ -10,7 +10,7 @@
 # - Имя файла и его размер должны быть в рамках переданного диапазона.
 import random
 import string
-import pathlib
+import shutil
 
 def maker(extension, file_amount=42, dir=".", name_min=6, name_max=30, bytes_min=256, bytes_max=4096):
     """
@@ -23,10 +23,9 @@ def maker(extension, file_amount=42, dir=".", name_min=6, name_max=30, bytes_min
     - content_max
     -files
     """
-    if not pathlib.os.path.exists(dir):
-        pathlib.os.mkdir(dir) 
-
-    for i in range(file_amount):  
+    if not shutil.os.path.exists(dir):
+        shutil.os.mkdir(dir) 
+    for _ in range(file_amount):  
         name = ''.join(random.choice(string.ascii_letters+string.digits) for _ in range(name_min, name_max))
         bytes = random.randbytes(random.randint(bytes_min, bytes_max))
         with open(f"{dir}/{name}.{extension}", 'xb')as f:
@@ -49,15 +48,10 @@ def maker(extension, file_amount=42, dir=".", name_min=6, name_max=30, bytes_min
 # - Существующие файлы не должны удаляться/изменяться в случае совпадения имён.
 
 def filer(**kwargs) -> list:
-    dir=""
-    if "dir" in kwargs.keys():
-        dir=kwargs.pop("dir")
-        for k, v in kwargs.items():
-            maker(k, v, dir)
-    else: 
-        for k, v in kwargs.items():
-            maker(k, v)
-    return list(pathlib.os.walk(dir))[0][2]
+    dir=kwargs.pop("dir")
+    for k, v in kwargs.items():
+        maker(k, v, dir)
+    return list(shutil.os.walk(dir))[0][2]
     
 # Задание No7:
 # - Создайте функцию для сортировки файлов по директориям: видео, изображения, текст и т.п.
