@@ -6,8 +6,8 @@ import time
 from games.guess_chess import positions
 
 
-arrangements_to_find = 100
-mode = 2
+arrangements_to_find = 4
+mode = 1
 start_time = time.time()
 arrangements = positions(arrangements_to_find, mode)
 end_time = time.time()
