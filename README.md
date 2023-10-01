@@ -7,3 +7,5 @@
 ## 5. [Итераторы и генераторы](https://github.com/allseenn/pythondive/blob/main/05.Lecture/README.md)
 
 ## 6. [Модули](https://github.com/allseenn/pythondive/blob/main/06.Lecture/README.md)
+
+## 8. [Сериализация](https://github.com/allseenn/pythondive/blob/main/08.Lecture/README.md)
