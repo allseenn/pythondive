@@ -1,0 +1,56 @@
+[
+  {
+    "name": "temp",
+    "parent": "",
+    "type": "directory",
+    "size": 0
+  },
+  {
+    "name": "temp/00",
+    "parent": "temp",
+    "type": "directory",
+    "size": 4096
+  },
+  {
+    "name": "file.csv",
+    "parent": "temp",
+    "type": "file",
+    "size": 141
+  },
+  {
+    "name": "file.json",
+    "parent": "temp",
+    "type": "file",
+    "size": 204
+  },
+  {
+    "name": "file.pickle",
+    "parent": "temp",
+    "type": "file",
+    "size": 189
+  },
+  {
+    "name": "list.csv",
+    "parent": "temp",
+    "type": "file",
+    "size": 499
+  },
+  {
+    "name": "list.json",
+    "parent": "temp",
+    "type": "file",
+    "size": 875
+  },
+  {
+    "name": "list.pickle",
+    "parent": "temp",
+    "type": "file",
+    "size": 677
+  },
+  {
+    "name": "temp/01",
+    "parent": "temp",
+    "type": "directory",
+    "size": 0
+  }
+]

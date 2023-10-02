@@ -17,7 +17,7 @@ def json_pickle(dir_name):
         if ".json" in i:
             with open(dir_name+"/"+i, "r") as input, open(dir_name+"/"+i.replace(".json", ".pickle"), "wb") as output:
                 json_data = json.load(input)
-                pickle.dump(json_data, output,)
+                pickle.dump(json_data, output)
 
 
 if __name__ == '__main__':

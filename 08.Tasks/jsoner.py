@@ -46,4 +46,5 @@ def json_gen(json_file):
 
 
 if __name__ == '__main__':
-    json_gen(argv[1])
+    my_dict = json_gen(argv[1])
+

@@ -4,9 +4,9 @@ import csv
 import json
 from sys import argv
 
-if len(argv) < 3:
-    print(f"Example: python {argv[0]} input.json output.csv")
-    exit(1)
+# if len(argv) < 3:
+#     print(f"Example: python {argv[0]} input.json output.csv")
+#     exit(1)
 
 def csv_gen(json_file, csv_file):
     with open(json_file, 'r', encoding='utf-8') as input_file, open(csv_file, 'w', newline='', encoding='utf-8') as output_file:
@@ -26,6 +26,7 @@ def csv_gen(json_file, csv_file):
         csv_writer.writeheader()  # Этот шаг автоматически записывает заголовок
         
         # Write data rows
+        # print(flattened_data)
         csv_writer.writerows(flattened_data)
 
     return "CSV file successfully created."
