@@ -24,6 +24,12 @@ def dir_size(directory):
     return total_size
 
 def ls_dir(dirname):
+    """
+    Function: Creates 3 files (json, csv, pickle) containing given directory and file info.
+    Arguments:
+        string dirname
+    Returns: string message
+    """
     ls = []
     root = shutil.os.walk(dirname)
     for i in root:    
@@ -36,27 +42,21 @@ def ls_dir(dirname):
             filepath = shutil.os.path.join(dir, file)
             size = shutil.os.path.getsize(filepath)
             ls.append({"name":file, "parent":parent, "type":"file", "size":size})
-    
-    return ls
+    with open('task01.json', 'w', encoding='utf-8') as f:
+        json.dump(ls, f, ensure_ascii=False, indent=2)
+    with open('task01.csv', 'w', encoding='utf-8', newline="") as f:        
+        csv_writer = csv.DictWriter(f, [i for i in ls[0]])
+        csv_writer.writeheader()  
+        csv_writer.writerows(ls)
+    with open('task01.pickle', "wb") as f:
+        pickle.dump(ls, f)
+    return "Created/updated: task01.json, task01.csv, task01.pickle"
 
 if __name__ == '__main__':
     dirname = argv[1]
-    filename = "stat"
-    json_file = filename + '.json'
-    csv_file = filename + '.csv'
-    pickle_file = filename + '.pickle'
-    data = ls_dir(dirname)
+    ls_dir(dirname)
     
-    with open(json_file, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-    with open(csv_file, 'w', encoding='utf-8', newline="") as f:        
-        csv_writer = csv.DictWriter(f, [i for i in data[0]])
-        csv_writer.writeheader()  
-        csv_writer.writerows(data)
-
-    with open(pickle_file, "wb") as f:
-        pickle.dump(data, f)
+    
     
 
         

@@ -29,7 +29,7 @@ def csv_gen(json_file, csv_file):
         csv_writer.writeheader()  # заголовок
         csv_writer.writerows(flattened_data)
 
-    return "CSV file successfully created."
+    return f"{csv_file} successfully created/updated."
 
 
 if __name__ == '__main__':

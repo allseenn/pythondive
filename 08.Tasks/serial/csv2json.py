@@ -38,7 +38,7 @@ def csv_json(csv_file, json_file):
         output_file.writelines("[")
         output_file.write(",\n".join(json_list))
         output_file.writelines("]")
-    return "JSON with newline dicts created"
+    return f"{json_file} with newline dicts created/updated"
 
 if __name__ == '__main__':
     csv_json(argv[1], argv[2])

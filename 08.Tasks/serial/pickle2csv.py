@@ -19,12 +19,12 @@ def pickle_csv(filename):
         filename - string filename.pickle
     Returns: string message
     """
-    with open(filename, "rb") as input, open(argv[1].replace(".pickle", ".csv"), "w", newline='') as output:
+    with open(filename, "rb") as input, open(filename.replace(".pickle", ".csv"), "w", newline='') as output:
         dic_list = pickle.loads(input.read())
         csv_file = csv.DictWriter(output, [i for i in dic_list[0].keys()])
         csv_file.writeheader()
         csv_file.writerows(dic_list)
-    return f"{filename}.pickle converted to {filename}.csv"
+    return f"{filename} converted to {filename.replace('.pickle', '.csv')}"
 
 if __name__ == '__main__':
     pickle_csv(argv[1])
