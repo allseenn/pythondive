@@ -8,18 +8,25 @@
 # csv файла представлена как отдельный json словарь.
 # - Имя исходного и конечного файлов передавайте как аргументы
 # функции.
-
 import csv
 import hashlib
 import json
 from sys import argv
-if len(argv) < 3:
-    print(f"Example: python {argv[0]} input.csv output.json")
-    exit(1)
+
+if __name__ == '__main__':
+    if len(argv) < 3:
+        print(f"Example: python {argv[0]} input.csv output.json")
+        exit(1)
 
 def csv_json(csv_file, json_file):
+    """
+    Description: Function creates custom json file from custom csv file
+    Arguments:
+        csv_file - string input csv file name
+        json_file - string output json file name
+    Returns: String message
+    """
     json_list = []
-
     with open(csv_file, 'r', encoding='utf-8') as input_file, open(json_file, 'w', newline='', encoding='utf-8') as output_file:
         csv_data = csv.reader(input_file, skipinitialspace=True)
         header = next(csv_data)
@@ -32,7 +39,6 @@ def csv_json(csv_file, json_file):
         output_file.write(",\n".join(json_list))
         output_file.writelines("]")
     return "JSON with newline dicts created"
-
 
 if __name__ == '__main__':
     csv_json(argv[1], argv[2])

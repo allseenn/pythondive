@@ -9,17 +9,25 @@
 import json
 from sys import argv
 from random import randint as ri
-if len(argv) < 2:
-    print(f"Example: python {argv[0]} filename.json")
-    exit(1)
 
-def json_gen(json_file):
-    my_dict = {}
+if __name__ == '__main__':
+    if len(argv) < 2:
+        print(f"Example: python {argv[0]} filename.json")
+        exit(1)
 
-    new_json = json.dumps(my_dict)
-
-    def my_json(my_dict):
-    
+    def json_gen(json_file):
+        """
+        Description: Generates custom json file. Interacts with user with cycle asking him to enter data.
+        Attributes: 
+            json_file - string json filename
+        Returns: string message
+        """
+        my_dict = {}
+        try:
+            with open(json_file, 'r', encoding='utf=8') as f:
+                my_dict = json.load(f)     
+        except:
+            pass
         while True:
             name = input('Введите имя: ')
             if name == 'q':
@@ -31,19 +39,9 @@ def json_gen(json_file):
                 my_dict[level] = {}
             my_dict[level][ri(0, 10000)] = name
             print(my_dict)
-
-
-    try:
-        with open(json_file, 'r', encoding='utf=8') as f:
-            my_dict = json.load(f)     
-    except:
-        pass
-    finally:
-        my_json(my_dict)
         with open(json_file, 'w', encoding='utf=8') as f:
             json.dump(my_dict, f)
-    return "JSON file updated"
-
+        return "JSON file updated"
 
 if __name__ == '__main__':
     my_dict = json_gen(argv[1])

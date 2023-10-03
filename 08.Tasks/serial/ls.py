@@ -11,36 +11,46 @@ import csv
 import pickle
 from sys import argv
 
+if __name__ == '__main__':
+    if len(argv) < 2:
+        argv.append(".")
 
-if len(argv) < 2:
-    argv.append(".")
+def dir_size(directory):
+    total_size = 0
+    for dirpath, dirnames, filenames in shutil.os.walk(directory):
+        for filename in filenames:
+            filepath = shutil.os.path.join(dirpath, filename)
+            total_size += shutil.os.path.getsize(filepath)
+    return total_size
 
-def ls_dict(dirname):
+def ls_dir(dirname):
     ls = []
     root = shutil.os.walk(dirname)
     for i in root:    
         dir = i[0]
         parent = shutil.os.path.dirname(i[0])
-        size = shutil.os.path.getsize(dir)
+        size = dir_size(dir)
         ls.append({"name":dir, "parent":parent, "type":"directory", "size":size})
         files = i[2]
         for file in files:
-            size = shutil.os.path.getsize(dir+"/"+file)
+            filepath = shutil.os.path.join(dir, file)
+            size = shutil.os.path.getsize(filepath)
             ls.append({"name":file, "parent":parent, "type":"file", "size":size})
     
     return ls
 
 if __name__ == '__main__':
     dirname = argv[1]
-    json_file = argv[1]+'.json'
-    csv_file = argv[1]+'.csv'
-    pickle_file = argv[1]+'.pickle'
-    data = ls_dict(dirname)
+    filename = "stat"
+    json_file = filename + '.json'
+    csv_file = filename + '.csv'
+    pickle_file = filename + '.pickle'
+    data = ls_dir(dirname)
     
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    with open(csv_file, 'w', encoding='utf-8') as f:        
+    with open(csv_file, 'w', encoding='utf-8', newline="") as f:        
         csv_writer = csv.DictWriter(f, [i for i in data[0]])
         csv_writer.writeheader()  
         csv_writer.writerows(data)

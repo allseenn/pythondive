@@ -4,29 +4,29 @@ import csv
 import json
 from sys import argv
 
-# if len(argv) < 3:
-#     print(f"Example: python {argv[0]} input.json output.csv")
-#     exit(1)
+if __name__ == "__main__":
+    if len(argv) < 3:
+        print(f"Example: python {argv[0]} input.json output.csv")
 
 def csv_gen(json_file, csv_file):
+    """
+    Description: Function creates csv file from custom nested csv file
+    Arguments:
+        json_file - string output json file name
+        csv_file - string input csv file name
+    Returns: String message
+    """
     with open(json_file, 'r', encoding='utf-8') as input_file, open(csv_file, 'w', newline='', encoding='utf-8') as output_file:
         json_data = json.load(input_file)
-        
-        # Flatten the nested dictionaries
+        # Убираем вложенность словарей
         flattened_data = []
         for key, value in json_data.items():
             for sub_key, sub_value in value.items():
                 flattened_data.append({"level": key, "id": sub_key, "name": sub_value})
 
-        # Specify fieldnames directly in DictWriter constructor
         fieldnames = ["level", "id", "name"]
-        
-        # Initialize DictWriter with fieldnames and write data rows
         csv_writer = csv.DictWriter(output_file, fieldnames=fieldnames)
-        csv_writer.writeheader()  # Этот шаг автоматически записывает заголовок
-        
-        # Write data rows
-        # print(flattened_data)
+        csv_writer.writeheader()  # заголовок
         csv_writer.writerows(flattened_data)
 
     return "CSV file successfully created."
