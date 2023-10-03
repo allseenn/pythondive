@@ -6,8 +6,7 @@
 0. Решить задания, которые не успели решить на семинаре.
 
 Задание No3
-- Напишите функцию, которая сохраняет созданный в
-- прошлом задании файл в формате CSV.
+- Напишите функцию, которая сохраняет созданный в [прошлом задании](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/jsoner.py) файл в формате CSV.
 
 Задание No4
 - Прочитайте созданный в прошлом задании csv файл без использования csv.DictReader.
@@ -44,4 +43,12 @@ csv файла представлена как отдельный json слов�
 
 ## Решение
 
-- [Задача ]()
+### Семинар
+- [Задача 3](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/json2csv.py)
+- [Задача 4](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/csv2json.py)
+- [Задача 5](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/json2pickle.py)
+- [Задача 6](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/pickle2csv.py)
+- [Задача 7](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/csv2pickle.py)
+### ДЗ
+- [Задача 1](https://github.com/allseenn/pythondive/blob/main/08.Tasks/serial/ls.py)
+- [Задача 2](https://github.com/allseenn/pythondive/blob/main/08.Tasks/main.py)
