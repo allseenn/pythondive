@@ -9,3 +9,5 @@
 ## 6. [Модули](https://github.com/allseenn/pythondive/blob/main/06.Lecture/README.md)
 
 ## 8. [Сериализация](https://github.com/allseenn/pythondive/blob/main/08.Lecture/README.md)
+
+## 9. [Декораторы](https://github.com/allseenn/pythondive/blob/main/09.Lecture/README.md)
