@@ -11,3 +11,5 @@
 ## 8. [Сериализация](https://github.com/allseenn/pythondive/blob/main/08.Lecture/README.md)
 
 ## 9. [Декораторы](https://github.com/allseenn/pythondive/blob/main/09.Lecture/README.md)
+
+## 10. [ООП](https://github.com/allseenn/pythondive/blob/main/10.Lecture/README.md)
