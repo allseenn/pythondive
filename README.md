@@ -13,3 +13,5 @@
 ## 9. [Декораторы](https://github.com/allseenn/pythondive/blob/main/09.Lecture/README.md)
 
 ## 10. [ООП](https://github.com/allseenn/pythondive/blob/main/10.Lecture/README.md)
+
+## 11. [ООП. Особенности Python](https://github.com/allseenn/pythondive/blob/main/11.Lecture/README.md)
