@@ -35,7 +35,7 @@ def generate_csv_file(file_name, rows):
             row = [random.randint(1, 1000) for _ in range(3)]
             writer.writerow(row)
 
-###########################################
+############### Все что ниже не вставляем в автопроверку ###################
 generate_csv_file("input_data.csv", 101)
 find_roots("input_data.csv")
 
