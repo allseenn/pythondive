@@ -1,18 +1,3 @@
-# class Archive:
-#     def __new__(cls):
-#         _instance.archive_text = list()
-#         _instance.archive_number = list()
-
-
-#     def __init__(self, text, number):
-#         self.archive_text.append(text)
-#         self.archive_number.append(number)
-
-#     def __str__(self):
-#         return f"Text is {self.archive_text[-1]} and number is {self.archive_number[-1]}. Also {[i for i in self.archive_text]} and {[i for i in self.archive_number]}"
-    
-#     def __repr__(self):
-#         return f"Archive({[i for i in self.archive_text]}, {[i for i in self.archive_number]})"
 class Archive:
     """
     Класс, представляющий архив текстовых и числовых записей.
@@ -48,11 +33,7 @@ class Archive:
         return f'Archive("{self.text}", {self.number})'
 
 
-archive1 = Archive("First Text", 1)
-archive2 = Archive("Second Text", 2)
-archive3 = Archive("Third Text", 3)
-print(archive1.archive_text)  # Выведет: ['First Text', 'Third Text']
-print(archive1.archive_number)  # Выведет: [1, 3]
-print(archive2.archive_text)  # Выведет: ['First Text', 'Second Text']
-print(archive2.archive_number)
-
+archive1 = Archive("Запись 1", 42)
+print(archive1)
+archive2 = Archive("Запись 2", 3.14)
+print(archive2)
