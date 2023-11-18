@@ -8,6 +8,7 @@ class Storage:
     def __call__(self, value):
         self.storage[type(value)].append(value)
         return f'К типу {type(value)} добавлен {value}'
+    
 
 s = Storage()
 print(s(42))

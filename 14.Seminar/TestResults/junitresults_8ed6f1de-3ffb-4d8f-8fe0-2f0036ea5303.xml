@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="2" time="0.199" timestamp="2023-11-15T00:07:49.381922" hostname="hplaser"><testcase classname="test_06" name="test_auth" file="test_06.py" line="85" time="0.159"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+{User(Bob, 2, 23), User(John, 2, 432), User(Ann, 1, 11), User(Ann, 1, 12), User(Alex, 3, 32), User(Ann, 1, 123), User(Bob, 1, 21)}
+User(Ann, 1, 12)
+None
+============================= test session starts =============================
+platform win32 -- Python 3.10.11, pytest-7.4.3, pluggy-1.3.0
+rootdir: D:\github\pythondive\14.Seminar
+plugins: anyio-4.0.0
+collected 0 items
+
+- generated xml file: D:\github\pythondive\14.Seminar\TestResults\junitresults_8ed6f1de-3ffb-4d8f-8fe0-2f0036ea5303.xml -
+============================ no tests ran in 0.07s ============================
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+ERROR: file or directory not found: pytest
+
+
+</system-err></testcase><testcase classname="test_06" name="test_eq" file="test_06.py" line="74" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

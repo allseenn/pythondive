@@ -15,5 +15,6 @@ class Fibonacci:
 
 
 fib = Fibonacci(20, 100)
-for num in fib: # TypeError: 'Fibonacci' object is not iterable
+for num in fib:
     print(num)
+
