@@ -55,7 +55,8 @@ def withdraw():
 
 def history():
     print(CLS)
-    print(*log, sep="\n")
+    with open("bank.log", mode="r", encoding="utf-8") as f:
+        print(*f)
     input("Нажмите ввод для возврата в меню! ")
 
 def show():
