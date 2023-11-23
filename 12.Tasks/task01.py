@@ -1,5 +1,3 @@
-# Введите ваше решение ниже
-
 import csv
 
 class Student:
@@ -81,22 +79,20 @@ class Student:
             return 0
         return sum(total_grades) / len(total_grades)
 
-#При отправке кода на Выполнение раскомментируйте строку ниже, чтобы задать значения аргументов и вызвать функцию
 
-#При отправке решения на Проверку закомментируйте эту строку обратно - система автоматически подставит разные значения аргументов и вызовет функцию для проверки
 
-student = Student("Иван Иванов", "subjects.csv")
+# student = Student("Иван Иванов", "subjects.csv")
 
-student.add_grade("Математика", 4)
-student.add_test_score("Математика", 85)
+# student.add_grade("Математика", 4)
+# student.add_test_score("Математика", 85)
 
-student.add_grade("История", 5)
-student.add_test_score("История", 92)
+# student.add_grade("История", 5)
+# student.add_test_score("История", 92)
 
-average_grade = student.get_average_grade()
-print(f"Средний балл: {average_grade}")
+# average_grade = student.get_average_grade()
+# print(f"Средний балл: {average_grade}")
 
-average_test_score = student.get_average_test_score("Математика")
-print(f"Средний результат по тестам по математике: {average_test_score}")
+# average_test_score = student.get_average_test_score("Математика")
+# print(f"Средний результат по тестам по математике: {average_test_score}")
 
-print(student)
+# print(student)
